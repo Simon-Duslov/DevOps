@@ -2,5 +2,5 @@ Package: DevOps
 Version: 1.0
 Architecture: all
 Maintainer: author
-Build-Depends: make, g++
+Depends: libc6 (>= 2.36)
 Description: is prime
