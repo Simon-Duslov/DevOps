@@ -2,5 +2,4 @@ Package: DevOps
 Version: 1.0
 Architecture: all
 Maintainer: author
-Build-Depends: make, g++
 Description: is prime
