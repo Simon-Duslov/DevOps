@@ -15,22 +15,22 @@ OBJS_TEST = $(patsubst $(CICD_DIR)%.cpp, $(TARGET_DIR)%.o, $(wildcard $(CICD_DIR
 
 all: $(TARGET) $(TARGET_TEST)
 
-$(TARGET): $(OBJS) #create_target_dir
-	$(CXX) $(CXXFLAGS) -o $(TARGET_DIR)/$@ $(OBJS)
+$(TARGET): create_target_dir $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET_DIR)$(TARGET) $(OBJS)
 
 $(TARGET_DIR)%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 test: $(TARGET_TEST)
 
-$(TARGET_TEST): $(OBJS_TEST)
+$(TARGET_TEST): create_target_dir $(OBJS_TEST)
 	$(CXX) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@
 
 $(TARGET_DIR)%.o: $(CICD_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-#create_target_dir:
-#	mkdir -p $(TARGET_DIR)
+create_target_dir:
+	mkdir -p $(TARGET_DIR)
 
 #create_cicd_dir:
 #	mkdir -p $(CICD_DIR)
@@ -40,6 +40,6 @@ package:
 	mv ..deb $(TARGET).deb
 
 clean:
-	rm -f $(TARGET_DIR)*.o $(TARGET_DIR)$(TARGET) $(TARGET).deb
+	rm -f $(TARGET_DIR)*.o $(TARGET_DIR)$(TARGET) $(TARGET).deb $(TARGET_DIR)$(TARGET_TEST)
 
-.PHONY: all clean test package #create_target_dir create_cicd_dir
+.PHONY: all clean test package create_target_dir create_cicd_dir
