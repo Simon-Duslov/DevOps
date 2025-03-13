@@ -29,7 +29,7 @@ $(TARGET_TEST): create_target_dir $(OBJS_TEST)
 	$(CXX) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@ $(LIBSFLAGS)
 
 $(TARGET_DIR)%.o: $(CICD_DIR)%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(LIBSFLAGS)
 
 create_target_dir:
 	mkdir -p $(TARGET_DIR)

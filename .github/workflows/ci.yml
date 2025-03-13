@@ -43,10 +43,14 @@ jobs:
             echo "/usr/lib:"
             cd /usr/lib
             ls
+            echo "---"
+            find /usr/lib/libCatch2WithMain.a
             echo "-------------------------"
             echo "lib:"
             cd /lib
             ls
+            echo "---"
+            find /lib/libCatch2WithMain.a
            
 
         - name: Build
