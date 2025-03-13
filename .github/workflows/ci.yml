@@ -32,6 +32,9 @@ jobs:
             echo "-------------------------"
             echo "ls ..:"
             ls
+            echo "-------------------------"
+            echo "catch2:"
+            dpkg -L catch2
            
 
         - name: Build
