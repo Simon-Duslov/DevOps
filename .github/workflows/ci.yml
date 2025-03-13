@@ -39,6 +39,10 @@ jobs:
             echo "catch2:"
             cd /usr/include/catch2
             ls
+            echo "-------------------------"
+            echo "catch2_lib:"
+            cd /lib
+            ls
            
 
         - name: Build
