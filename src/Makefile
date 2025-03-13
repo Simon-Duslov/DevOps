@@ -1,6 +1,6 @@
 HEADER = /usr/include
 CXX = g++
-CXXFLAGS = -std=c++14 -Wall -Wextra -O2 -I $(HEADER)
+CXXFLAGS = -std=c++14 -Wall -Wextra -O2 -I$(HEADER)
 LIBSFLAGS = -lCatch2Main -lCatch2 -lm
 
 REP_DIR = ../
