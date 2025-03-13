@@ -36,11 +36,15 @@ jobs:
             echo "catch2:"
             dpkg -L catch2
             echo "-------------------------"
-            echo "catch2:"
+            echo "catch2_header:"
             cd /usr/include/catch2
             ls
             echo "-------------------------"
-            echo "catch2_lib:"
+            echo "/usr/lib:"
+            cd /usr/lib
+            ls
+            echo "-------------------------"
+            echo "lib:"
             cd /lib
             ls
            
