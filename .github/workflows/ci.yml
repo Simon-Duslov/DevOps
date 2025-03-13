@@ -35,6 +35,10 @@ jobs:
             echo "-------------------------"
             echo "catch2:"
             dpkg -L catch2
+            echo "-------------------------"
+            echo "catch2:"
+            cd /usr/include/catch2
+            ls
            
 
         - name: Build
