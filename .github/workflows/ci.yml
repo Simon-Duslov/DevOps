@@ -1,0 +1,42 @@
+name: ci
+
+on:
+    push:
+        branches:
+        - pr2
+    pull_request:
+        - pr2
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          with:
+            ref: pr2
+
+        - name: Install
+          run: |
+            sudo apt update
+            sudo apt install g++ make debhelper dpkg-dev
+            sudo apt install catch2
+            cd src
+
+        - name: Build
+          run: make all
+
+    test:
+        needs: build
+        steps:
+        - name: Test
+          run: make test
+
+    package:
+        needs: [build, test]
+
+        - name: Upload artifact
+            uses: actions/upload-artifact@v4
+            with:
+                name: build_package
+                path: ./usr/bin/isPrime.deb

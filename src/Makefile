@@ -2,6 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++14 -Wall -Wextra -O2
 LIBSFLAGS = -lCatch2Main -lCatch2 -lm
 
+REP_DIR = ../
 TARGET_DIR = ../usr/bin/
 CICD_DIR = ../cicd/
 
@@ -36,10 +37,10 @@ create_target_dir:
 #	mkdir -p $(CICD_DIR)
 
 package:
-	dpkg-deb --build .
-	mv ..deb $(TARGET).deb
+	dpkg-deb --build $(REP_DIR).
+	mv ...deb $(TARGET_DIR)$(TARGET).deb
 
 clean:
-	rm -f $(TARGET_DIR)*.o $(TARGET_DIR)$(TARGET) $(TARGET).deb $(TARGET_DIR)$(TARGET_TEST)
+	rm -f $(TARGET_DIR)*.o $(TARGET_DIR)$(TARGET) $(TARGET_DIR)$(TARGET).deb $(TARGET_DIR)$(TARGET_TEST)
 
 .PHONY: all clean test package create_target_dir create_cicd_dir
