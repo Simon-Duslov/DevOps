@@ -22,9 +22,17 @@ jobs:
             sudo apt update
             sudo apt install g++ make debhelper dpkg-dev
             sudo apt install catch2
+            echo "-------------------------"
+            echo " pwd:"
+            pwd
+            echo "-------------------------"
+            echo "ls:"
             ls
-            cd lib
+            cd ..
+            echo "-------------------------"
+            echo "ls ..:"
             ls
+           
 
         - name: Build
           run: |
