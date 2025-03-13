@@ -22,10 +22,11 @@ jobs:
             sudo apt update
             sudo apt install g++ make debhelper dpkg-dev
             sudo apt install catch2
-            cd src
 
         - name: Build
-          run: make -f Makefile all
+          run: |
+               cd src
+               make -f Makefile all
 
     test:
         runs-on: ubuntu-latest
@@ -33,6 +34,7 @@ jobs:
         steps:
         - name: Test
           run: |
+              cd src
               make -f Makefile clean
               make -f Makefile test
 
@@ -41,9 +43,11 @@ jobs:
         needs: [build, test]
         steps:
         - name: Build package
-          run:  make -f Makefile package
+          run:  |
+               cd src
+               make -f Makefile package
         - name: Upload artifact
           uses: actions/upload-artifact@v4
           with:
-            name: build_package
+            name: build-package
             path: ./usr/bin/isPrime.deb
