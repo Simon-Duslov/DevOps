@@ -20,8 +20,17 @@ jobs:
         - name: Install
           run: |
             sudo apt update
-            sudo apt install g++ make debhelper dpkg-dev
-            sudo apt install catch2
+            sudo apt-get install -y g++ make debhelper dpkg-dev
+            sudo apt-get install -y catch2 build-essential cmake
+            git clone https://github.com/catchorg/Catch2.git
+            cd Catch2
+            
+            mkdir build
+            cd build
+            cmake .. -DBUILD_TESTING=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+            make
+            sudo make install
+            
             echo "-------------------------"
             echo " pwd:"
             pwd
