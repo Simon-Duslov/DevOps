@@ -1,7 +1,8 @@
-HEADER = /usr/include
+HEADER = /usr/local/include
 CXX = g++
 CXXFLAGS = -std=c++14 -Wall -Wextra -O2 -I$(HEADER)
-LIBSFLAGS = -lCatch2WithMain
+LDFLAGS = -L/usr/local/lib
+LDLIBS = -lCatch2
 
 REP_DIR = ../
 TARGET_DIR = ../usr/bin/
@@ -26,10 +27,10 @@ $(TARGET_DIR)%.o: %.cpp
 test: $(TARGET_TEST)
 
 $(TARGET_TEST): create_target_dir $(OBJS_TEST)
-	$(CXX) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@
+	$(CXX) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@ $(LDFLAGS) $(LDLIBS)
 
 $(TARGET_DIR)%.o: $(CICD_DIR)%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(LDFLAGS) $(LDLIBS)
 
 create_target_dir:
 	mkdir -p $(TARGET_DIR)
