@@ -6,6 +6,17 @@
 #endif
 #include "../src/isPrime.h"
 
+
+
+/*int main(int argc, char* argv[]) {
+    Catch::Session session;
+    int returnCode = session.applyCommandLine(argc, argv);
+    if(returnCode != 0) {
+        return returnCode;
+    }
+    return session.run();
+}*/
+
 TEST_CASE("Negative number", "[isPrime]"){
     REQUIRE(isPrime(-1) == false);
 }

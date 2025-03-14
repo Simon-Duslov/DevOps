@@ -26,10 +26,10 @@ $(TARGET_DIR)%.o: %.cpp
 test: $(TARGET_TEST)
 
 $(TARGET_TEST): create_target_dir $(OBJS_TEST)
-	$(CXX) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@ $(LIBSFLAGS)
+	$(CXX) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@
 
 $(TARGET_DIR)%.o: $(CICD_DIR)%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@ $(LIBSFLAGS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 create_target_dir:
 	mkdir -p $(TARGET_DIR)
