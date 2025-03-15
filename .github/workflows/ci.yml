@@ -42,10 +42,9 @@ jobs:
             mkdir testlib
             cd testlib
             mkdir lib
-            mkdir -p include/catch2
             cp /usr/local/lib/libCatch2.a lib/libCatch2Main.a
             cp /usr/local/lib/libCatch2Main.a lib/libCatch2Main.a
-            cp /usr/local/include/catch2/catch_all.hpp include/catch2/catch_all.hpp
+            cp -r /usr/local/include/catch2 include/.
             cd ..
 
             echo "-------------------------"
