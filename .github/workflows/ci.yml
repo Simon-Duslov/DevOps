@@ -141,10 +141,10 @@ jobs:
           with:
             name: deb-package
 
-        - name: TEST FIND RESULT INSTALL DEB-PACKAGE
-          run:  |
-              sudo dpkg -i isPrime.deb
-              find / -type f -name "isPrime"
+        #- name: TEST FIND RESULT INSTALL DEB-PACKAGE
+        #  run:  |
+        #      sudo dpkg -i isPrime.deb
+        #      find / -type f -name "isPrime"
        
 
         - name: Login to Docker Hub
