@@ -2,7 +2,7 @@ HEADER = /usr/local/include
 CXX = g++
 CXXFLAGS = -std=c++14 -Wall -Wextra -O2 -I$(HEADER)
 LDFLAGS = -L/usr/local/lib
-LDLIBS = -lCatch2 -lCatch2Main
+LDLIBS = -lCatch2Main -lCatch2
 
 REP_DIR = ../
 TARGET_DIR = ../usr/bin/
@@ -45,4 +45,4 @@ package:
 clean:
 	rm -f $(TARGET_DIR)*.o $(TARGET_DIR)$(TARGET) $(TARGET_DIR)$(TARGET).deb $(TARGET_DIR)$(TARGET_TEST)
 
-.PHONY: all clean test package create_target_dir create_cicd_dir
+.PHONY: all clean test package create_target_dir #create_cicd_dir
