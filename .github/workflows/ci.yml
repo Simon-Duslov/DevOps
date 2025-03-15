@@ -167,4 +167,4 @@ jobs:
             
         - name: Push Docker image
           run: |
-            docker push ${{ secrets.DOCKER_HUB_USER }}/is_prime:latest
+            docker push chevepchich/is_prime:latest
