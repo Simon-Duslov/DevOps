@@ -2,7 +2,7 @@ HEADER = /usr/local/include
 CXX = g++
 CXXFLAGS = -std=c++14 -Wall -Wextra -O2 -I$(HEADER)
 LDFLAGS = -L/usr/local/lib
-LDLIBS = -lCatch2
+LDLIBS = -lCatch2 -lCatch2Main
 
 REP_DIR = ../
 TARGET_DIR = ../usr/bin/
