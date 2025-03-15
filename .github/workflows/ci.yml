@@ -149,12 +149,12 @@ jobs:
 
         - name: Build Docker image
           run: |
-            docker build -t isPrime:latest .
+            docker build -t is_prime:latest .
 
         - name: Run Docker container
           run: |
-            docker run --rm isPrime:latest
+            docker run --rm is_prime:latest
             
         - name: Push Docker image
           run: |
-            docker push isPrime:latest
+            docker push is_prime:latest
