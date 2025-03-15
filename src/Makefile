@@ -42,7 +42,7 @@ create_target_dir:
 
 package:
 	dpkg-deb --build $(REP_DIR).
-	mv ...deb $(TARGET_DIR)$(TARGET).deb
+	mv ...deb ../$(TARGET).deb
 
 clean:
 	rm -f $(TARGET_DIR)*.o $(TARGET_DIR)$(TARGET) $(TARGET_DIR)$(TARGET).deb $(TARGET_DIR)$(TARGET_TEST)
