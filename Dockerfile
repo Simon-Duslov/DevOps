@@ -1,4 +1,4 @@
-FROM ubuntu:latest-alpine
+FROM ubuntu:latest
 
 COPY isPrime.deb /tmp/isPrime.deb
 
