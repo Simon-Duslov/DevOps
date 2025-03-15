@@ -143,7 +143,7 @@ jobs:
 
         - name: TEST FIND RESULT INSTALL DEB-PACKAGE
           run:  |
-              dpkg -i isPrime.deb
+              sudo dpkg -i isPrime.deb
               find / -type f -name "isPrime"
        
 
