@@ -45,7 +45,7 @@ jobs:
             mkdir include
             cp /usr/local/lib/libCatch2.a lib/libCatch2Main.a
             cp /usr/local/lib/libCatch2Main.a lib/libCatch2Main.a
-            cp /usr/local/include/catch2/catch_all.hpp include/catch_all.hpp
+            cp /usr/local/include/catch2/catch_all.hpp include/catch2/catch_all.hpp
             cd ..
 
             echo "-------------------------"
@@ -137,7 +137,7 @@ jobs:
             make clean
             make test
 
-        - name: Save testlib artifact
+        - name: Save test result artifact
           uses: actions/upload-artifact@v4
           with:
             name: test-artifact
