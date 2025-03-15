@@ -1,7 +1,7 @@
-HEADER = /usr/local/include
+HEADER = testlib/include
 CXX = g++
 CXXFLAGS = -std=c++14 -Wall -Wextra -O2 -I$(HEADER)
-LDFLAGS = -L/usr/local/lib
+LDFLAGS = -Ltestlib/lib
 LDLIBS = -lCatch2Main -lCatch2
 
 REP_DIR = ../
