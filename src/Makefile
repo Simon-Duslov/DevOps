@@ -18,16 +18,18 @@ OBJS_TEST = $(patsubst $(CICD_DIR)%.cpp, $(TARGET_DIR)%.o, $(wildcard $(CICD_DIR
 
 all: $(TARGET) $(TARGET_TEST)
 
+build: $(TARGET)
+
 $(TARGET): create_target_dir $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET_DIR)$(TARGET) $(OBJS)
 
 $(TARGET_DIR)%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-test: $(TARGET_TEST)
+test: $(TARGET) $(TARGET_TEST)
 
 $(TARGET_TEST): create_target_dir $(OBJS_TEST)
-	$(CXX) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@ $(LDFLAGS) $(LDLIBS)
+	$(CXX) $(CXXFLAGS) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@ $(LDFLAGS) $(LDLIBS)
 
 $(TARGET_DIR)%.o: $(CICD_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@ $(LDFLAGS) $(LDLIBS)
@@ -45,4 +47,4 @@ package:
 clean:
 	rm -f $(TARGET_DIR)*.o $(TARGET_DIR)$(TARGET) $(TARGET_DIR)$(TARGET).deb $(TARGET_DIR)$(TARGET_TEST)
 
-.PHONY: all clean test package create_target_dir #create_cicd_dir
+.PHONY: all clean build test package create_target_dir #create_cicd_dir
