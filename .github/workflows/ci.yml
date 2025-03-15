@@ -157,10 +157,11 @@ jobs:
           run: |
             docker build -t is_prime:latest .
 
-        - name: Check container logs
-          run: docker logs is_prime:latest
+        #- name: Check container logs
+        #  run: docker logs is_prime:latest
 
         - name: Run Docker container
+          timeout-minutes: 5
           run: |
             echo 3 | docker run -i --rm is_prime:latest
             
