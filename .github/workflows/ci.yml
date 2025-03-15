@@ -119,6 +119,20 @@ jobs:
             echo "test:"
             echo "-------------------------"
             ls
+            echo "-------------------------"
+            cd testlib
+            echo "-------------------------"
+            echo "testlib:"
+            echo "-------------------------"
+            ls
+            echo "-------------------------"
+            cd include
+            echo "-------------------------"
+            echo "testlib/include:"
+            echo "-------------------------"
+            ls
+            echo "-------------------------"
+            cd ../..
             cd src
             make clean
             make test
