@@ -22,6 +22,7 @@ build: $(TARGET)
 
 $(TARGET): create_target_dir $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET_DIR)$(TARGET) $(OBJS)
+	chmod +x $(TARGET_DIR)$(TARGET)
 
 $(TARGET_DIR)%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -30,6 +31,7 @@ test: $(TARGET) $(TARGET_TEST)
 
 $(TARGET_TEST): create_target_dir $(OBJS_TEST)
 	$(CXX) $(CXXFLAGS) $(OBJS_TEST) $(TARGET_DIR)$(TARGET).o -o $(TARGET_DIR)$@ $(LDFLAGS) $(LDLIBS)
+	chmod +x $(TARGET_DIR)$(TARGET_TEST)
 
 $(TARGET_DIR)%.o: $(CICD_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@ $(LDFLAGS) $(LDLIBS)
