@@ -21,7 +21,7 @@ jobs:
           run: |
             sudo apt-get update
             sudo apt-get install -y g++ make debhelper dpkg-dev
-            sudo apt-get install -y catch2 build-essential cmake
+            sudo apt-get install -y git build-essential cmake
 
         - name: Install Catch2
           run: |
@@ -48,47 +48,15 @@ jobs:
             cp -r /usr/local/include/catch2 include
             cd ..
 
-            echo "-------------------------"
-            echo " pwd:"
-            pwd
-            echo "-------------------------"
-            echo "ls:"
-            ls
-            cd ..
-            echo "-------------------------"
-            echo "ls ..:"
-            ls
-            echo "-------------------------"
-            echo "catch2:"
-            dpkg -L catch2
-            echo "-------------------------"
-            echo "catch2_header:"
-            cd /usr/include/catch2
-            ls
-            echo "-------------------------"
-            echo "/usr/lib:"
-            cd /usr/lib
-            ls
-            echo "-------------------------"
-            echo "lib:"
-            cd /lib
-            ls
-
-           
-
         - name: Build
           run: |
-            echo "-------------------------"
-            echo "build:"
-            echo "-------------------------"
-            ls
             cd src
             make build
         
         - name: Save testlib artifact
           uses: actions/upload-artifact@v4
           with:
-            name: build-artifact
+            name: testlib
             path: testlib/
 
     test:
@@ -109,30 +77,12 @@ jobs:
         - name: Download testlib artifact
           uses: actions/download-artifact@v4
           with:
-            name: build-artifact
+            name: testlib
             path: testlib/
 
 
         - name: Test
           run: |
-            echo "-------------------------"
-            echo "test:"
-            echo "-------------------------"
-            ls
-            echo "-------------------------"
-            cd testlib
-            echo "-------------------------"
-            echo "testlib:"
-            echo "-------------------------"
-            ls
-            echo "-------------------------"
-            cd include
-            echo "-------------------------"
-            echo "testlib/include:"
-            echo "-------------------------"
-            ls
-            echo "-------------------------"
-            cd ../..
             cd src
             make clean
             make test
@@ -140,7 +90,7 @@ jobs:
         - name: Save test result artifact
           uses: actions/upload-artifact@v4
           with:
-            name: test-artifact
+            name: bin
             path: usr/bin/
 
     package:
@@ -161,7 +111,7 @@ jobs:
         - name: Download testlib artifact
           uses: actions/download-artifact@v4
           with:
-            name: test-artifact
+            name: bin
             path: usr/bin/
 
         - name: Build package
