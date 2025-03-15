@@ -74,6 +74,10 @@ jobs:
         steps:
         - name: Test
           run: |
+            echo "-------------------------"
+            echo "test:"
+            echo "-------------------------"
+            ls
             make -f Makefile clean
             make -f Makefile test
 
