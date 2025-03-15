@@ -155,7 +155,7 @@ jobs:
 
         - name: Build Docker image
           run: |
-            docker build -t is_prime:latest .
+            docker build -t ${{ secrets.DOCKER_HUB_USER }}/is_prime:latest .
 
         #- name: Check container logs
         #  run: docker logs is_prime:latest
@@ -163,8 +163,8 @@ jobs:
         - name: Run Docker container
           timeout-minutes: 5
           run: |
-            echo 3 | docker run -i --rm is_prime:latest
+            echo 3 | docker run -i --rm ${{ secrets.DOCKER_HUB_USER }}/is_prime:latest
             
         - name: Push Docker image
           run: |
-            docker push chevepchich/is_prime:latest
+            docker push ${{ secrets.DOCKER_HUB_USER }}/is_prime:latest
