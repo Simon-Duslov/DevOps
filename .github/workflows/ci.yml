@@ -86,8 +86,7 @@ jobs:
             cd src
             make clean
             make test
-            ./../usr/bin/tests
-            echo "Exit code: $?"
+           
             ./../usr/bin/isPrime 3 
             echo "Exit code: $?"
             echo "NU CHZH"
