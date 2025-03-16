@@ -90,6 +90,7 @@ jobs:
             echo "Exit code: $?"
             ./../usr/bin/isPrime 3 
             echo "Exit code: $?"
+            echo "NU CHZH"
 
         - name: Save test result artifact
           uses: actions/upload-artifact@v4
