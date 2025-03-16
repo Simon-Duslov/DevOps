@@ -87,7 +87,7 @@ jobs:
             make clean
             make test
             ./../usr/bin/tests
-            /../usr/bin/isPrime 3
+            ./../usr/bin/isPrime 3
 
         - name: Save test result artifact
           uses: actions/upload-artifact@v4
