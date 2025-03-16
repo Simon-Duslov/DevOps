@@ -1,6 +1,8 @@
 //#define CATCH_CONFIG_MAIN
 //#if __has_include(<catch2/catch_all.hpp>)
-    #include <catch2/catch_all.hpp>
+#include <iostream>
+#include <catch2/catch_all.hpp>
+   
 // #else
 //     #include <catch2/catch.hpp>
 // #endif
@@ -16,6 +18,8 @@
     }
     return session.run();
 }*/
+
+
 
 TEST_CASE("Negative number", "[isPrime]"){
     REQUIRE(isPrime(-1) == false);
@@ -41,6 +45,7 @@ TEST_CASE("Prime", "[isPrime]"){
 
 int main(int argc, char* argv[]) {
     int result = Catch::Session().run(argc, argv);
+    std::cout << result;
     std::exit(result);  // Принудительное завершение процесса
 }
 

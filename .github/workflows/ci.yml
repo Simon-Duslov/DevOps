@@ -86,8 +86,8 @@ jobs:
             cd src
             make clean
             make test
-            timeout 20 ./../usr/bin/tests
-            timeout 20 ./../usr/bin/isPrime
+            ./../usr/bin/tests
+            /../usr/bin/isPrime 3
 
         - name: Save test result artifact
           uses: actions/upload-artifact@v4
