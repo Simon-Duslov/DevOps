@@ -91,15 +91,9 @@ jobs:
           env:
             VAR: 3
           run: |
-            screen -dmS mysession ./usr/bin/tests
-            EXIT_CODE=$?
-            if [ $EXIT_CODE -ne 0 ]; then
-              echo "Process failed with exit code $EXIT_CODE, but continuing pipeline..."
-            elif [ $EXIT_CODE -eq 124 ]; then
-              echo "Process timed out, but continuing pipeline..."
-            fi
+            timeout 10 ./usr/bin/tests || true
             echo "Exit code: $?"
-            screen -dmS mysession ./usr/bin/isPrime "$VAR1" || true
+            timeout 10  ./usr/bin/isPrime "$VAR1" || true
             echo "Exit code: $?"
            
 
