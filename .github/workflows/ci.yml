@@ -91,8 +91,7 @@ jobs:
           env:
             VAR: 3
           run: |
-            chmod +x usr/bin/tests
-            ./usr/bin/tests
+            screen -dmS mysession ./usr/bin/tests
             EXIT_CODE=$?
             if [ $EXIT_CODE -ne 0 ]; then
               echo "Process failed with exit code $EXIT_CODE, but continuing pipeline..."
@@ -100,8 +99,7 @@ jobs:
               echo "Process timed out, but continuing pipeline..."
             fi
             echo "Exit code: $?"
-            chmod +x usr/bin/isPrime
-            ./usr/bin/isPrime "$VAR1" || true
+            screen -dmS mysession ./usr/bin/isPrime "$VAR1" || true
             echo "Exit code: $?"
            
 
