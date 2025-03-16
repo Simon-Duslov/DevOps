@@ -38,5 +38,5 @@ int main() {
         cout << n << " isn't prime." << endl;
     }
 
-    return 0;
+    exit(0); 
 }
