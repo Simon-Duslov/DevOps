@@ -33,9 +33,9 @@ int main() {
 
     // Проверка на простоту
     if (isPrime(n)) {
-        cout << n << " is prime." << endl;
+        cout << n << " is prime." << endl << flush;;
     } else {
-        cout << n << " isn't prime." << endl;
+        cout << n << " isn't prime." << endl << flush;;
     }
 
     return 0;

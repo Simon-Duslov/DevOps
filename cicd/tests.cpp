@@ -45,7 +45,7 @@ TEST_CASE("Prime", "[isPrime]"){
 
 int main(int argc, char* argv[]) {
     int result = Catch::Session().run(argc, argv);
-    std::cout << result;
+    std::cout << result << std::flush;
     return result;
     //std::exit(result);  // Принудительное завершение процесса
 }
