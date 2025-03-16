@@ -87,6 +87,16 @@ jobs:
             make clean
             make test
 
+
+        - name: Run tests
+          env:
+            VAR: 3
+          run: |
+            timeout 30 ./usr/bin/tests || true
+            echo "Exit code: $?"
+            timeout 30  ./usr/bin/isPrime "$VAR1" || true
+            echo "Exit code: $?"
+
         - name: Save test result artifact
           uses: actions/upload-artifact@v4
           with:
