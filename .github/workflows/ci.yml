@@ -86,6 +86,8 @@ jobs:
             cd src
             make clean
             make test
+            ./../usr/bin/tests
+            ./../usr/bin/isPrime
 
         - name: Save test result artifact
           uses: actions/upload-artifact@v4
