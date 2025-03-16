@@ -52,6 +52,13 @@ jobs:
           run: |
             cd src
             make build
+          
+        - name: Run
+          env:
+            VAR: 3
+          run: |
+            cd ../usr/bin
+            ./isPrime "$VAR1"
         
         - name: Save testlib artifact
           uses: actions/upload-artifact@v4
@@ -91,7 +98,9 @@ jobs:
           env:
             VAR: 3
           run: |
-            cd usr/bin
+            ./../usr/bin/tests
+            echo "Exit code: $?"
+            cd ../usr/bin
             ./isPrime "$VAR1"
            
 
