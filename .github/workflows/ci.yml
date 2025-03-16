@@ -92,8 +92,15 @@ jobs:
             VAR: 3
           run: |
             timeout 30 ./usr/bin/tests || true
+            EXIT_CODE=$?
+            if [ $EXIT_CODE -ne 0 ]; then
+              echo "Process failed with exit code $EXIT_CODE, but continuing pipeline..."
+            elif [ $EXIT_CODE -eq 124 ]; then
+              echo "Process timed out, but continuing pipeline..."
+            fi
             echo "Exit code: $?"
             timeout 30  ./usr/bin/isPrime "$VAR1" || true
+            echo "Exit code: $?"
            
 
         - name: Save test result artifact
