@@ -30,7 +30,7 @@ TEST_CASE("Zero", "[isPrime]"){
 }
 
 TEST_CASE("One", "[isPrime]"){
-    REQUIRE(isPrime(0) == false);
+    REQUIRE(isPrime(1) == false);
 }
 
 TEST_CASE("Not prime", "[isPrime]"){
@@ -46,8 +46,7 @@ TEST_CASE("Prime", "[isPrime]"){
 int main(int argc, char* argv[]) {
     int result = Catch::Session().run(argc, argv);
     std::cout << result << std::flush;
-    return result;
-    //std::exit(result);  // Принудительное завершение процесса
+    std::exit(result);
 }
 
 /*void tests() {
