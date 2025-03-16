@@ -86,8 +86,10 @@ jobs:
             cd src
             make clean
             make test
-            ./../usr/bin/tests | tee output.log
-            ./../usr/bin/isPrime 3 | tee output.log
+            ./../usr/bin/tests
+            echo "Exit code: $?"
+            ./../usr/bin/isPrime 3 
+            echo "Exit code: $?"
 
         - name: Save test result artifact
           uses: actions/upload-artifact@v4
