@@ -91,7 +91,7 @@ jobs:
           env:
             VAR: 3
           run: |
-            cd ../usr/bin
+            cd usr/bin
             ./isPrime "$VAR1"
            
 
