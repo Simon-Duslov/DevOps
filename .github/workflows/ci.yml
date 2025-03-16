@@ -91,9 +91,9 @@ jobs:
           env:
             VAR: 3
           run: |
-            timeout 30 ./../usr/bin/tests || true
+            timeout 30 ./usr/bin/tests || true
             echo "Exit code: $?"
-            timeout 30  ./../usr/bin/isPrime "$VAR1" || true
+            timeout 30  ./usr/bin/isPrime "$VAR1" || true
            
 
         - name: Save test result artifact
